@@ -1,0 +1,27 @@
+---
+interface Props {
+  home: string;
+  search: string;
+  arrow: boolean;
+  nav: string;
+}
+
+const { home, search, arrow, nav } = Astro.props;
+---
+
+<header>
+  <nav class=`flex gap-4 ${nav} right-0 mt-10 mr-5`>
+    <a href="./"><img src=`../../public/${home}` alt="" class="text-black" /></a
+    >
+    <a href="./movies"><img src=`../../public/${search}` alt="" /></a>
+    {
+      arrow ? (
+        <a href="../movies">
+          <img src="../../public/arrow-left.svg" alt="" />
+        </a>
+      ) : (
+        ""
+      )
+    }
+  </nav>
+</header>

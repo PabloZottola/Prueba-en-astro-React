@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Movie from "../../components/Movie";
+
+const { id } = Astro.params;
+---
+
+<Layout title="MoviePop!">
+  <Header home="homew" search="searchO" arrow={true} nav="justify-end" />
+  <main>
+    <section class="flex items-center justify-center flex-col text-white">
+      <Movie id={id} client:only="react" />
+    </section>
+  </main>
+</Layout>
