@@ -7,7 +7,7 @@ const { id } = Astro.params;
 ---
 
 <Layout title="MoviePop!">
-  <Header home="homew" search="searchO" arrow={true} nav="justify-end" />
+  <Header home="homew" search="searchO" nav="justify-end" movie={true} />
   <main>
     <section class="flex items-center justify-center flex-col text-white">
       <Movie id={id} client:only="react" />

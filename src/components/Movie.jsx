@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { MovieApi } from "../API/MovieApi";
-import "../style/style.css";
 
 const Movie = ({ id }) => {
   const url = `https://api.tvmaze.com/shows/${id}`;
