@@ -18,9 +18,7 @@ const Search = () => {
   };
   useEffect(() => {
     fetchData(url);
-    console.log(isLoading);
   }, [debounceValue]);
-  console.log(isLoading);
   return (
     <>
       {movie === "" ? (
