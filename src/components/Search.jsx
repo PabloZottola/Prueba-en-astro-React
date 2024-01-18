@@ -18,34 +18,45 @@ const Search = () => {
   };
   useEffect(() => {
     fetchData(url);
+    console.log(isLoading);
   }, [debounceValue]);
-
+  console.log(isLoading);
   return (
     <>
-      <form className="flex justify-center">
-        <input
-          className="bg-slate-700 text-white w-96 h-12 pl-4 mt-7 rounded-lg"
-          type="text"
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
-          value={movie}
-          name="query"
-          maxLength="24"
-          placeholder="Filtro de peliculas"
-        />
-      </form>
-
       {movie === "" ? (
         <>
-          <p className="text-red-600 text-2xl text-center">
-            Ingrese una pelicula
-          </p>
+          <form className="flex justify-center">
+            <input
+              className="bg-slate-700 text-white w-96 h-12 pl-4 mt-7 rounded-lg border-red-600 border-2 focus:outline-none focus:ring focus:ring-red-600"
+              type="text"
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              value={movie}
+              name="query"
+              maxLength="24"
+              placeholder="Filtro de peliculas"
+            />
+          </form>
+
           <h2 className="text-white text-2xl ml-14 my-3">Películas</h2>
+          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(190px,_1fr))] justify-items-center mx-5 gap-3 text-white border-t pt-6"></ul>
         </>
       ) : (
         <>
-          <h2 className="text-white text-2xl ml-14 my-3 ">Películas</h2>
-          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(190px,_1fr))] justify-items-center m-5 gap-3 text-white ">
+          <form className="flex justify-center">
+            <input
+              className="bg-slate-700 text-white w-96 h-12 pl-4 mt-7 rounded-lg"
+              type="text"
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              value={movie}
+              name="query"
+              maxLength="24"
+              placeholder="Filtro de peliculas"
+            />
+          </form>
+          <h2 className="text-white text-2xl ml-14 my-3">Películas</h2>
+          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(190px,_1fr))] justify-items-center mx-5 gap-3 text-white border-t pt-6">
             {isLoading ? (
               <>
                 <p>Cargando...</p>

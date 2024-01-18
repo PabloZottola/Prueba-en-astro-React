@@ -10,16 +10,21 @@ const { home, search, nav, movie } = Astro.props;
 ---
 
 <header>
-  <nav class=`flex gap-4 ${nav} right-0 mt-10 mr-5`> 
+  <nav class=`flex gap-4 ${nav} right-0 mt-10 mr-5`>
     {
       movie ? (
         <a href="../movies">
           <img src="../../public/arrow-left.svg" alt="" />
         </a>
       ) : (
-      <><a href="./"><img src=`../../public/${home}` alt="" class="text-black" /></a
-    >
-    <a href="./movies"><img src=`../../public/${search}` alt="" /></a></>
+        <>
+          <a href="./">
+            <img src={`../../public/${home}`} alt="" class="text-black" />
+          </a>
+          <a href="./movies">
+            <img src={`../../public/${search}`} alt="" />
+          </a>
+        </>
       )
     }
   </nav>

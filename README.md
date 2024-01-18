@@ -1,54 +1,40 @@
-# Astro Starter Kit: Basics
+El usuario debería ingresar a la pantalla principal y al presionar la lupa, esta redirecciona al
+listado de películas, en las cual mostraría la portada y el título de cada una de estas.
 
-```sh
-npm create astro@latest -- --template basics
-```
+También permitiría buscar un título, en el campo Buscar.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Al seleccionar una imagen llevaría a ver los datos de la película seleccionada, con la
+clasificación de estrellas sobre la imagen y los demás datos abajo.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Para poder obtener todos los datos de las películas, se deben consumir los datos de la API:
+TV MAZE API:
+Disponible en:
+http://api.tvmaze.com/search/shows?q=star%20wars.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+De esta API vamos a obtener toda la información necesaria para la aplicación.
 
-## 🚀 Project Structure
+Elegimos las de Star Wars para que sea más acotado el contenido, pero a la vez tener
+varios ítems para el listado.
 
-Inside of your Astro project, you'll see the following folders and files:
+Lo esperado es la utilización de los componentes necesarios, lo imprescindible para la
+ejecución de este mini proyecto y que se vea como la maqueta brindada, a pesar de que la
+maqueta está realizada para celular se debería ver bien en la mayoría de los dispositivos.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Datos adicionales / Requerimientos:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+• Te brindamos la maqueta realizada en Adobe XD.
+• Los iconos utilizados en el menú son de la librería Font Awesome.
+• El nombre de la fuente utilizada es Nunito.
+• La pizarra (la que usan los directores) debe ser reemplazada con una imagen de la
+película.
+• Al hacer scroll en la vista de resultados, debe cargarse contenido dinámicamente,
+haciendo un “infinite scroll”.
+• Se puede agregar alguna funcionalidad que veas necesaria incluir.
+• Cuando aún no se ha buscado nada, se completa con películas de star wars, sino serán
+los resultados de la API.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Crud de Usuarios
+- Guardar preferencias (“Favorito”) de películas del usuario en dB
+- Lista de películas “Favoritas” por usuario
+- Login (google, api propia)
+  Maquetar a elección la lista de películas favoritas y la pantalla de login
