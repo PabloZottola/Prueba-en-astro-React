@@ -1,16 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MovieApi } from "../API/MovieApi";
 import { StarRating } from "./StarRating";
 
 const Movie = ({ id }) => {
   const url = `https://api.tvmaze.com/shows/${id}`;
   const { movies, isLoading, fetchData } = MovieApi();
+  const [imagenCargada, setImagenCargada] = useState(false);
+
+  const handleImagenCargada = () => {
+    setImagenCargada(true);
+
+  };
 
   useEffect(() => {
     fetchData(url);
   }, []);
-
-  console.log(movies.summary);
 
   return (
     <>
@@ -25,11 +29,12 @@ const Movie = ({ id }) => {
               className="w-96 mt-8"
               src={movies.image?.original}
               alt={movies.name}
+              onLoad={handleImagenCargada}
             />
             <StarRating star={movies.rating?.average} />
           </div>
 
-          <div className="text-sm text-left">
+          <div className="text-sm text-left w-96">
             <h1 className="text-2xl my-4 text-center">{movies.name}</h1>
             <p className="font-bold">Lenguaje: {movies.language}</p>
             <p className="font-bold">{`Géneros: ${movies.genres?.join(
@@ -37,7 +42,7 @@ const Movie = ({ id }) => {
             )} `}</p>
             <p className="font-bold">Fecha de estreno: {movies.premiered}</p>
             <h2 className="text-2xl my-4 text-center">Sinopsis</h2>
-            <p className="w-96">{movies.summary}</p>
+            <span dangerouslySetInnerHTML={{ __html: movies.summary }} />
           </div>
         </div>
       )}
