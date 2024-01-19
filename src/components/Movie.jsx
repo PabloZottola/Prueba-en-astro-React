@@ -5,9 +5,13 @@ import { StarRating } from "./StarRating";
 const Movie = ({ id }) => {
   const url = `https://api.tvmaze.com/shows/${id}`;
   const { movies, isLoading, fetchData } = MovieApi();
+
   useEffect(() => {
     fetchData(url);
   }, []);
+
+  console.log(movies.summary);
+
   return (
     <>
       {isLoading ? (
@@ -33,12 +37,7 @@ const Movie = ({ id }) => {
             )} `}</p>
             <p className="font-bold">Fecha de estreno: {movies.premiered}</p>
             <h2 className="text-2xl my-4 text-center">Sinopsis</h2>
-            <p className="w-96">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex
-              officiis consequatur odit aperiam inventore similique facere
-              facilis ipsa ad iusto eum praesentium sapiente vitae unde
-              provident, temporibus tenetur dolorum eaque!
-            </p>
+            <p className="w-96">{movies.summary}</p>
           </div>
         </div>
       )}
