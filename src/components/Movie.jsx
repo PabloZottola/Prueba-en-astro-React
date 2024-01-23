@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { MovieApi } from "../API/MovieApi";
 import { StarRating } from "./StarRating";
 
 const Movie = ({ id }) => {
   const url = `https://api.tvmaze.com/shows/${id}`;
   const { movies, isLoading, fetchData } = MovieApi();
-  const [imagenCargada, setImagenCargada] = useState(false);
-
-  const handleImagenCargada = () => {
-    setImagenCargada(true);
-
-  };
 
   useEffect(() => {
     fetchData(url);
@@ -29,7 +23,6 @@ const Movie = ({ id }) => {
               className="w-96 mt-8"
               src={movies.image?.original}
               alt={movies.name}
-              onLoad={handleImagenCargada}
             />
             <StarRating star={movies.rating?.average} />
           </div>
